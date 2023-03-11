@@ -1,0 +1,65 @@
+# Preguntas de examen
+preguntas = [
+    {
+        "pregunta": "¿Cuál es la capital de Francia?",
+        "respuestas": {"a": "Londres", "b": "París", "c": "Madrid", "d": "Roma"},
+        "respuesta_correcta": "b"
+    },
+    {
+        "pregunta": "¿Cuál es la fórmula química del agua?",
+        "respuestas": {"a": "H2O", "b": "CO2", "c": "CH4", "d": "NH3"},
+        "respuesta_correcta": "a"
+    },
+    {
+        "pregunta": "¿Cuál es el autor de la obra 'Don Quijote de la Mancha'?",
+        "respuestas": {"a": "Miguel de Cervantes", "b": "William Shakespeare", "c": "García Lorca", "d": "Pablo Neruda"},
+        "respuesta_correcta": "a"
+    }
+]
+
+# Preguntas de examen sobre ingeniería de software
+preguntas = [
+    {
+        "pregunta": "¿Qué es un modelo de ciclo de vida de software?",
+        "respuestas": {"a": "Una técnica de programación", "b": "Un método de diseño de bases de datos", "c": "Una estrategia para el desarrollo de software", "d": "Una herramienta para el control de versiones"},
+        "respuesta_correcta": "c"
+    },
+    {
+        "pregunta": "¿Qué es un diagrama de clases?",
+        "respuestas": {"a": "Un modelo de proceso de software", "b": "Una técnica de prueba de software", "c": "Un modelo de objetos y relaciones en un sistema de software", "d": "Una herramienta de gestión de proyectos"},
+        "respuesta_correcta": "c"
+    },
+    {
+        "pregunta": "¿Qué es la refactorización de código?",
+        "respuestas": {"a": "Una técnica para mejorar la calidad del código sin cambiar su comportamiento externo", "b": "Un método para probar la seguridad de software", "c": "Una estrategia para la gestión de cambios en un proyecto de software", "d": "Una técnica para medir la complejidad del código fuente"},
+        "respuesta_correcta": "a"
+    },
+    {
+        "pregunta": "¿Qué es la integración continua?",
+        "respuestas": {"a": "Una técnica para la gestión de requisitos de software", "b": "Un método para el diseño de la arquitectura de software", "c": "Una estrategia para la gestión de cambios en un proyecto de software", "d": "Una práctica para automatizar la construcción, pruebas y despliegue de software"},
+        "respuesta_correcta": "d"
+    }
+]
+
+# Función para hacer una pregunta y evaluar la respuesta
+def hacer_pregunta(pregunta):
+    print(pregunta["pregunta"])
+    for opcion, respuesta in pregunta["respuestas"].items():
+        print(opcion + ") " + respuesta)
+    respuesta_estudiante = input("Introduce la letra de la respuesta correcta: ")
+    if respuesta_estudiante == pregunta["respuesta_correcta"]:
+        print("Respuesta correcta!")
+        return 1
+    else:
+        print("Respuesta incorrecta!")
+        return 0
+
+# Función para hacer todo el examen
+def hacer_examen(preguntas):
+    puntaje_total = 0
+    for pregunta in preguntas:
+        puntaje_total += hacer_pregunta(pregunta)
+    print("Tu puntaje total es: " + str(puntaje_total) + " de " + str(len(preguntas)))
+
+# Ejecutar el examen
+hacer_examen(preguntas)
